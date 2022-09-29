@@ -7,43 +7,36 @@ public class Main {
         int choix;
         Scanner sc = new Scanner(System.in);
         public void menu(){
-                        System.out.println("***************** Menu ****************");
+                        System.out.println("***************** Menu Principal ****************");
                         System.out.println("1 : college");
-                        System.out.println("2 : user");
-                        System.out.println("3 : departement");
-                        System.out.println("4 : matier");
-                        System.out.println("5 : Enseignant");
-                        System.out.println("6 : Etudiant");
-                        System.out.println("7 : Evaluation");
+                        System.out.println("2 : departement");
+                        System.out.println("3 : matier");
+                        System.out.println("4 : Enseignant");
+                        System.out.println("5 : Etudiant");
+                        System.out.println("6 : Evaluation");
                         System.out.println("0 : pour quiter");
-                        System.out.println("*********************************");
-
+                        System.out.println("************************************************");
                         choix = sc.nextInt();
                         switch (choix) {
                                 case 1:
                                         menuCollege();
                                         break;
-
-                                case 2 :
+                                case 2:
                                         menuDepartement();
                                         break;
-
                                 case 3:
-                                        sevriceAdmin.addDepartement();
-                                        break;
-                                case 4:
-                                        System.out.println("6666");
+                                       menuMatier();
                                         break;
 
-                                case 5:
+                                case 4:
                                         menuEnseignant();
                                         break;
 
-                                case 6:
-                                        System.out.println("6666");
+                                case 5:
+                                       System.out.println("etudiant");
                                         break;
-                                case 7:
-                                        System.out.println("77777");
+                                case 6:
+                                        menuEvaluation();
                                         break;
                                 default:
                                         break;
@@ -58,6 +51,7 @@ public class Main {
                 System.out.println("2 : chercher une  College");
                 System.out.println("3 : voir tout les colleges");
                 System.out.println("4 : supprimer ine college");
+                System.out.println("5 : ajouter adress on college");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("0 : pour quiter");
                 System.out.println("*********************************");
@@ -82,6 +76,10 @@ public class Main {
                                 sevriceAdmin.removeCollege();
                                 menuCollege();
                                 break;
+                        case 5 :
+                                sevriceAdmin.addAdress();
+                                menuCollege();
+                                break;
                         case 00 :
                                 menu();
                                 break;
@@ -104,19 +102,19 @@ public class Main {
                 switch (choix)
                 {
                         case 1 :
-                                sevriceAdmin.addCollege();
+                                sevriceAdmin.addDepartement();
                                 menuDepartement();
                                 break;
                         case 2 :
-                                sevriceAdmin.getCollege();
+                                sevriceAdmin.getDepartement();
                                 menuDepartement();
                                 break;
                         case 3 :
-                                sevriceAdmin.getAllCollege();
+                                sevriceAdmin.getAllDepartement();
                                 menuDepartement();
                                 break;
                         case 4 :
-                                sevriceAdmin.removeCollege();
+                                sevriceAdmin.removeDepartement();
                                 menuDepartement();
                                 break;
                         case 00 :
@@ -141,19 +139,19 @@ public class Main {
                 switch (choix)
                 {
                         case 1 :
-                                sevriceAdmin.addCollege();
+                                sevriceAdmin.addEnsiegnant();
                                 menuEnseignant();
                                 break;
                         case 2 :
-                                sevriceAdmin.getCollege();
+                                sevriceAdmin.getEnseignant();
                                 menuEnseignant();
                                 break;
                         case 3 :
-                                sevriceAdmin.getAllCollege();
+                                sevriceAdmin.getAllEnseignant();
                                 menuEnseignant();
                                 break;
                         case 4 :
-                                sevriceAdmin.removeCollege();
+                                sevriceAdmin.removeEnseignant();
                                 menuEnseignant();
                                 break;
                         case 00 :
@@ -161,6 +159,77 @@ public class Main {
                                 break;
                 }
         }
+  // menu Matier
+  public void menuMatier(){
+          System.out.println("***************** Menu Matier ****************");
+          System.out.println("1 : ajouter une matier");
+          System.out.println("2 : chercher une matier");
+          System.out.println("3 : voir tout les matier");
+          System.out.println("4 : supprimer une matier");
+          System.out.println("00 : pour retour au menu principale");
+          System.out.println("0 : pour quiter");
+          System.out.println("*********************************");
+          choix = sc.nextInt();
+          switch (choix)
+          {
+                  case 1 :
+                          sevriceAdmin.addCollege();
+                          menuMatier();
+                          break;
+                  case 2 :
+                          sevriceAdmin.getCollege();
+                          menuMatier();
+                          break;
+                  case 3 :
+                          sevriceAdmin.getAllCollege();
+                          menuMatier();
+                          break;
+                  case 4 :
+                          sevriceAdmin.removeCollege();
+                          menuMatier();
+                          break;
+                  case 00 :
+                          menu();
+                          break;
+          }
+  }
+
+        public void menuEvaluation(){
+                System.out.println("***************** Menu ****************");
+                System.out.println("1 : ajouter Evaluation");
+                System.out.println("2 : chercher  Evualuation");
+                System.out.println("3 : voir tout les Evaluation");
+                System.out.println("4 : supprimer Evaluation ");
+                System.out.println("00 : pour retour au menu principale");
+                System.out.println("0 : pour quiter");
+                System.out.println("*********************************");
+                choix = sc.nextInt();
+
+                switch (choix)
+                {
+                        case 1 :
+                                sevriceAdmin.addCollege();
+                                menuEvaluation();
+                                break;
+                        case 2 :
+                                sevriceAdmin.getCollege();
+                                menuEvaluation();
+                                break;
+                        case 3 :
+                                sevriceAdmin.getAllCollege();
+                                menuEvaluation();
+                                break;
+                        case 4 :
+                                sevriceAdmin.removeCollege();
+                                menuEvaluation();
+                                break;
+                        case 00 :
+                                menu();
+                                break;
+                }
+        }
+
+
 
 
     public static void main(String[] args) {

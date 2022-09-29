@@ -13,15 +13,6 @@ public class College{
         this.adress = new Adress(id,ville,pays,codePostal,adress);
     }
 
-    public void addDeparetements(int id, String name, String description){
-        this.departements.put(id,new Departement(id,name,description));
-    }
-    public void removeDepartement(int id){
-        this.departements.remove(id);
-    }
-    public Departement chercherDeparetement(int id){
-        return this.departements.get(id);
-    }
     public College(){}
     public College(int numero, String name, String site) {
         this.numero = numero;
@@ -59,6 +50,14 @@ public class College{
 
     public void setAdress(Adress adress) {
         this.adress = adress;
+    }
+
+    public HashMap<Integer, Departement> getDepartements() {
+        return departements;
+    }
+
+    public void setDepartements(HashMap<Integer, Departement> departements) {
+        this.departements = departements;
     }
 
     @Override
