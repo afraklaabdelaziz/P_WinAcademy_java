@@ -1,11 +1,11 @@
 package com.company;
 
 public class Adress {
-    public int id;
-    public String ville;
-    public String pays;
-    public String codePostal;
-    public String adress;
+    private int id;
+    private String ville;
+    private String pays;
+    private String codePostal;
+    private String adress;
 
     public Adress(int id, String ville, String pays, String codePostal, String adress) {
         this.id = id;

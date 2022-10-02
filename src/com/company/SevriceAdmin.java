@@ -25,10 +25,28 @@ public class SevriceAdmin {
     public void getAllCollege(){
         app.getAllCollege();
     }
+
+    public void editeCollege(){
+        System.out.println("Enter numero de college que tu va editer");
+        int idCollege = sc.nextInt();
+        app.getCollege(idCollege);
+        System.out.println("1 : pour edite name \n 2 : pour edite Site");
+        int numero = sc.nextInt();
+        System.out.println("Enter noveau value");
+        String newValue = sc.next();
+        app.editeCollege(idCollege,numero,newValue);
+    }
+
     public void removeCollege(){
         System.out.println("Entrer le numero de college que tu va  supprimer");
         int numero = sc.nextInt();
         app.removeCollege(numero);
+    }
+
+    public void rechercheCollege(){
+        System.out.println("etrer le nom ou le site pour chercher  de college");
+        String name = sc.next();
+        app.rechercheCollege(name);
     }
 
 //departement
@@ -135,6 +153,7 @@ public class SevriceAdmin {
         app.getCollege(numero);
         System.out.println("Entrer le numero  de departement");
         int idDepartement = sc.nextInt();
+        app.getDepartement(numero,idDepartement);
         System.out.println("Entrer le numero  de Enseignant");
         int idEnseignant = sc.nextInt();
         app.getEnseignant(numero,idDepartement,idEnseignant);
@@ -146,9 +165,31 @@ public class SevriceAdmin {
         app.getCollege(numero);
         System.out.println("Entrer le numero  de departement");
         int idDepartement = sc.nextInt();
+        app.getDepartement(numero,idDepartement);
         System.out.println("Entrer le numero  de Enseignant");
         int idEnseignant = sc.nextInt();
-        app.removeDepartement(numero,idEnseignant);
+        app.removeEnseignant(numero,idDepartement,idEnseignant);
+    }
+
+    //Matier
+
+    public void addMatier(){
+        System.out.println("Entrer le numero de college de departement");
+        int numero = sc.nextInt();
+        app.getCollege(numero);
+        System.out.println("Entrer le numero  de departement");
+        int idDepartement = sc.nextInt();
+        app.getDepartement(numero,idDepartement);
+        System.out.println("Entrer le numero  de Enseignant");
+        int idEnseignant = sc.nextInt();
+        app.getEnseignant(numero,idDepartement,idEnseignant);
+        System.out.println("Entrer id de matier");
+        int idMatier = sc.nextInt();
+        System.out.println("Entrer name de matier");
+        String name = sc.next();
+        System.out.println("Entrer description de matier");
+        String description = sc.next();
+        app.addMatier(idMatier,name,description,numero,idDepartement,idEnseignant);
     }
 
 

@@ -1,11 +1,11 @@
 package com.company;
 
 public class Responsable{
-    public int id;
-    public int id_departement;
-    public int id_enseignant;
-    public String dateDebut;
-    public String dateFin;
+    private int id;
+    private int id_departement;
+    private int id_enseignant;
+    private String dateDebut;
+    private String dateFin;
 
     public Responsable(int id, int id_departement, int id_enseignant, String dateDebut, String dateFin) {
         this.id = id;

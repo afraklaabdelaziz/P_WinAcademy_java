@@ -52,6 +52,8 @@ public class Main {
                 System.out.println("3 : voir tout les colleges");
                 System.out.println("4 : supprimer ine college");
                 System.out.println("5 : ajouter adress on college");
+                System.out.println("6 : recherche college");
+                System.out.println("7 : edite  college");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("0 : pour quiter");
                 System.out.println("*********************************");
@@ -78,6 +80,14 @@ public class Main {
                                 break;
                         case 5 :
                                 sevriceAdmin.addAdress();
+                                menuCollege();
+                                break;
+                        case 6 :
+                                sevriceAdmin.rechercheCollege();
+                                menuCollege();
+                                break;
+                        case 7 :
+                                sevriceAdmin.editeCollege();
                                 menuCollege();
                                 break;
                         case 00 :
@@ -173,7 +183,7 @@ public class Main {
           switch (choix)
           {
                   case 1 :
-                          sevriceAdmin.addCollege();
+                          sevriceAdmin.addMatier();
                           menuMatier();
                           break;
                   case 2 :

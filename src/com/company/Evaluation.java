@@ -1,10 +1,10 @@
 package com.company;
 
 public class Evaluation {
-    public int id_student;
-    public int id_matier;
-    public String date;
-    public double note;
+    private int id_student;
+    private int id_matier;
+    private String date;
+    private double note;
 
     public Evaluation(int id_student, int id_matier, String date, double note) {
         this.id_student = id_student;

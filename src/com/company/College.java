@@ -7,7 +7,7 @@ public class College{
     private String name;
     private String site;
     private Adress adress ;
-    HashMap<Integer,Departement> departements = new HashMap<Integer,Departement>();
+    private HashMap<Integer,Departement> departements = new HashMap<Integer,Departement>();
 
     public void addAdress(int id,String ville,String pays,String codePostal,String adress){
         this.adress = new Adress(id,ville,pays,codePostal,adress);
@@ -57,6 +57,7 @@ public class College{
     }
 
     public void setDepartements(HashMap<Integer, Departement> departements) {
+
         this.departements = departements;
     }
 
