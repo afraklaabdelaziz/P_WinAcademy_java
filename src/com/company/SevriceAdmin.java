@@ -292,4 +292,85 @@ public class SevriceAdmin {
         app.addEtudiant(id,dateEnter,lastname,firstname,email,phone,password,status);
     }
 
+    public void getAlletudiant(){
+        app.getAllEtudiant();
+    }
+
+    public void editeEtudiant(){
+        getAlletudiant();
+        System.out.println("Entrer id etudiant que tu va edite");
+        int idEtudiant = sc.nextInt();
+        System.out.println("1 : pour edite annne Entere\n2 : pour edite last name\n3 : pour edite first name\n4 : pour edite email\n5 : pour edite phone\n6 : pour edite password ");
+        int nuumero = sc.nextInt();
+        System.out.println("Entere nouveau value");
+        String newValue = sc.next();
+        app.editEtudint(idEtudiant,nuumero,newValue);
+    }
+
+    public void addEvaluation(){
+        getAllCollege();
+        System.out.println("Entere id de college");
+        int idCollege = sc.nextInt();
+        getAlletudiant();
+        System.out.println("entrer id Etudiant");
+        int idEtudiant = sc.nextInt();
+        System.out.println("entrer id Evaluation");
+        int idEvaluation = sc.nextInt();
+        System.out.println("Enter date evaluation");
+        String date = sc.next();
+        System.out.println("Enter note evaluation");
+        double note = sc.nextDouble();
+        System.out.println("choisir id de matier de evaluation");
+        app.allMatierParCollege(idCollege);
+        int idMatier = sc.nextInt();
+        app.addEvaluation(idEvaluation,idEtudiant,idMatier,date,note);
+    }
+
+    public void allEvaluationParMatire(){
+        getAllCollege();
+        System.out.println("Entere id de college");
+        int idCollege = sc.nextInt();
+        getAlletudiant();
+        System.out.println("Entrer id Etudiant");
+        int idEtudiant = sc.nextInt();
+        app.allMatierParCollege(idCollege);
+        System.out.println("Choisir id Matier");
+        int idMAtier = sc.nextInt();
+        app.allEvaluationParMatier(idEtudiant,idMAtier);
+    }
+
+    public void editeEvaluation(){
+        getAllCollege();
+        System.out.println("Entere id de college");
+        int idCollege = sc.nextInt();
+        getAlletudiant();
+        System.out.println("Entrer id Etudiant");
+        int idEtudiant = sc.nextInt();
+        app.allMatierParCollege(idCollege);
+        System.out.println("Choisir id Matier");
+        int idMAtier = sc.nextInt();
+        app.allEvaluationParMatier(idEtudiant,idMAtier);
+        System.out.println("Entere id Evaluation");
+        int idEvaluation = sc.nextInt();
+        System.out.println("enter nouveau note");
+        double newNote = sc.nextDouble();
+        app.editEvaluation(idEtudiant,idEvaluation,newNote);
+    }
+
+    public void removeEvaluation(){
+        getAllCollege();
+        System.out.println("Entrer ud college");
+        int idCollege = sc.nextInt();
+        getAlletudiant();
+        System.out.println("Donner id etudiant");
+        int idEtudiant = sc.nextInt();
+        app.allMatierParCollege(idCollege);
+        System.out.println("Entrer id Matier");
+        int idMatier = sc.nextInt();
+        app.allEvaluationParMatier(idEtudiant,idMatier);
+        System.out.println("Choidir evaluation que tu va supprimer");
+        int idEvaluation = sc.nextInt();
+        app.removeEvualution(idEtudiant,idEvaluation);
+    }
+
 }

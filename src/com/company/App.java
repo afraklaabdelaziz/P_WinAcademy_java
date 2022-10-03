@@ -186,6 +186,56 @@ public class App {
         etudiants.put(id,etudiant);
     }
 
+    public void editEtudint(int idEtudiant,int update,String newValue){
+        switch (update){
+            case 1 : etudiants.get(idEtudiant).setAnneeEntree(newValue);
+                break;
+            case 2 : etudiants.get(idEtudiant).setLastName(newValue);
+                break;
+            case 3 : etudiants.get(idEtudiant).setFirstName(newValue);
+                break;
+            case 4 : etudiants.get(idEtudiant).setEmail(newValue);
+                break;
+            case 5 : etudiants.get(idEtudiant).setPhone(newValue);
+                break;
+            case 6 : etudiants.get(idEtudiant).setPassword(newValue);
+                break;
+
+        }
+    }
+
+    public void getAllEtudiant(){
+        etudiants.forEach((key,value)-> System.out.println(key + " = " + value));
+    }
+
+
+
+
+
+    public void addEvaluation(int idEvaluation,int idEtudiant,int idMatier,String date,double note){
+        Evaluation evaluation = new Evaluation(idEvaluation,idMatier,date,note);
+        etudiants.get(idEtudiant).getEvaluations().put(idMatier,evaluation);
+    }
+
+    public void editEvaluation(int idEtudiant,int idEvaluation,double newNote){
+        etudiants.get(idEtudiant).getEvaluations().get(idEvaluation).setNote(newNote);
+    }
+
+    public void allEvaluationParMatier(int idEtudiant,int idMAtier){
+        etudiants.get(idEtudiant).getEvaluations().forEach((key,value) ->
+                {
+                    if (value.getId_matier() == idMAtier) {
+                        System.out.println(key + " = " + value);
+                    }
+                }
+
+                );
+    }
+
+    public void removeEvualution(int idEtudiant,int idEvualution){
+        etudiants.get(idEtudiant).getEvaluations().remove(idEvualution);
+    }
+
   public void updateAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege){
 
   }

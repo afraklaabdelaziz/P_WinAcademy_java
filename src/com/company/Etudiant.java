@@ -42,6 +42,12 @@ public class Etudiant extends User {
         return "Etudiant{" +
                 "id=" + id +
                 ", anneeEntree='" + anneeEntree + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", status='" + status + '\'' +
                 ", evaluations=" + evaluations +
                 '}';
     }

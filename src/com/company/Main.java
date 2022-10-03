@@ -32,10 +32,10 @@ public class Main {
                                         break;
 
                                 case 5:
-                                       System.out.println("etudiant");
+                                        menuEtudiant();
                                         break;
                                 case 6:
-                                        menuEtudiant();
+                                        menuEvaluation();
                                         break;
                                 default:
                                         break;
@@ -238,6 +238,7 @@ public class Main {
                 System.out.println("1 : ajouter Etudiant");
                 System.out.println("2 : chercher  Etudiant");
                 System.out.println("3 : voir tout les etudiants");
+                System.out.println("4 : edite etudiant");
                 System.out.println("4 : supprimer Etudiant ");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
@@ -255,10 +256,14 @@ public class Main {
                                 menuEtudiant();
                                 break;
                         case 3 :
-                                sevriceAdmin.getAllCollege();
+                                sevriceAdmin.getAlletudiant();
                                 menuEtudiant();
                                 break;
                         case 4 :
+                                sevriceAdmin.editeEtudiant();
+                                menuEtudiant();
+                                break;
+                        case 5 :
                                 sevriceAdmin.removeCollege();
                                 menuEtudiant();
                                 break;
@@ -268,6 +273,41 @@ public class Main {
                 }
         }
 
+
+        public void menuEvaluation(){
+                System.out.println("***************** Menu Etudiant ****************");
+                System.out.println("1 : ajouter Evualuation");
+                System.out.println("2 : voir tout les evaluation par matier");
+                System.out.println("3 : edite evualtion");
+                System.out.println("4 : supprimer Evaluation ");
+                System.out.println("00 : pour retour au menu principale");
+                System.out.println("pour quiter le programme clic sur any button");
+                System.out.println("*********************************");
+                choix = sc.nextInt();
+
+                switch (choix)
+                {
+                        case 1 :
+                                sevriceAdmin.addEvaluation();
+                                menuEvaluation();
+                                break;
+                        case 2 :
+                                sevriceAdmin.allEvaluationParMatire();
+                                menuEvaluation();
+                                break;
+                        case 3 :
+                                sevriceAdmin.editeEvaluation();
+                                menuEvaluation();
+                                break;
+                        case 4:
+                                sevriceAdmin.removeEvaluation();
+                                menuEvaluation();
+                                break;
+                        case 00 :
+                                menu();
+                                break;
+                }
+        }
 
 
     public static void main(String[] args) {
