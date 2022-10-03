@@ -184,7 +184,7 @@ public class SevriceAdmin {
         app.getEnseignant(numero,idDepartement,idEnseignant);
     }
 
-    public void AsiegneMatier(){
+    public void asiegneMatier(){
         getAllCollege();
         System.out.println("Entrer le numero de college");
         int idCollege = sc.nextInt();
@@ -198,7 +198,7 @@ public class SevriceAdmin {
         app.getAllMatier();
         System.out.println("Enter id de matier que tu va asigner a Enseignant");
         int idMatier = sc.nextInt();
-        app.AsiegneMatier(idCollege,idDepartement,idEnseignant,idMatier);
+        app.asiegneMatier(idCollege,idDepartement,idEnseignant,idMatier);
     }
 
     public void removeEnseignant(){

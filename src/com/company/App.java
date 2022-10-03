@@ -97,7 +97,7 @@ public class App {
         System.out.println(colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant));
     }
 
-    public void AsiegneMatier(int idCollege,int idDepartement,int idEnseignant,int idMatier){
+    public void asiegneMatier(int idCollege,int idDepartement,int idEnseignant,int idMatier){
         colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant).setIdmatier(idMatier);
     }
 

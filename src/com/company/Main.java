@@ -149,7 +149,8 @@ public class Main {
                 System.out.println("1 : ajouter Enseignant");
                 System.out.println("2 : chercher une  Enseignant");
                 System.out.println("3 : voir tout Enseignant");
-                System.out.println("4 : supprimer Enseignant");
+                System.out.println("4 : Asegner matier au Enseignant");
+                System.out.println("5 : supprimer Enseignant");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -170,6 +171,10 @@ public class Main {
                                 menuEnseignant();
                                 break;
                         case 4 :
+                                sevriceAdmin.asiegneMatier();
+                                menuEnseignant();
+                                break;
+                        case 5 :
                                 sevriceAdmin.removeEnseignant();
                                 menuEnseignant();
                                 break;
