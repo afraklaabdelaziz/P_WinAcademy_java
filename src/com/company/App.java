@@ -173,8 +173,17 @@ public class App {
        matiers.remove(idMatier);
     }
 
-    public void rechercheMatier(){
+    public void rechercheMatier(String search){
+        matiers.forEach((key,value) -> {
+            if (value.getName().equals(search) || value.getDescription().equals(search)){
+                System.out.println(key + " = " + value);
+            }
+        });
+    }
 
+    public void addEtudiant(int id,String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status){
+        Etudiant etudiant = new Etudiant(id,anneeEntree,lastName,firstName,email,phone,password,status);
+        etudiants.put(id,etudiant);
     }
 
   public void updateAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege){

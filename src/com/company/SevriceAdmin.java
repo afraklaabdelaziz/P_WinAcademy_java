@@ -259,6 +259,12 @@ public class SevriceAdmin {
         app.editMatier(idMatier,numero,newValue);
     }
 
+    public void rechercheMatier(){
+        System.out.println("Enter nom ou description de matier que tu va chercher");
+        String search = sc.next();
+        app.rechercheMatier(search);
+    }
+
     public void removeMatier(){
         getAllMatier();
         System.out.println("Enter id de matier que tu va supprimer");
@@ -266,5 +272,24 @@ public class SevriceAdmin {
         app.removeMatier(idMatier);
     }
 
+    public void addEtudiant(){
+        System.out.println("Entrer id Etudiant");
+        int id = sc.nextInt();
+        System.out.println("Entrer date d'entrer");
+        String dateEnter = sc.next();
+        System.out.println("Entrer lastName");
+        String lastname = sc.next();
+        System.out.println("Entrer firstNAme");
+        String firstname = sc.next();
+        System.out.println("Entrer email");
+        String email = sc.next();
+        System.out.println("Entrer phone");
+        String phone = sc.next();
+        System.out.println("Entrer password");
+        String password = sc.next();
+        System.out.println("Entrer status");
+        String status = sc.next();
+        app.addEtudiant(id,dateEnter,lastname,firstname,email,phone,password,status);
+    }
 
 }

@@ -31,7 +31,7 @@ public class Etudiant extends User {
         this.evaluations = evaluations;
     }
 
-    public Etudiant(int id, String lastName, String firstName, String email, String phone, String password, String status) {
+    public Etudiant(int id,String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status) {
         super(id, lastName, firstName, email, phone, password, status);
         this.id = id;
         this.anneeEntree = anneeEntree;

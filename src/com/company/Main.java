@@ -35,7 +35,7 @@ public class Main {
                                        System.out.println("etudiant");
                                         break;
                                 case 6:
-                                        menuEvaluation();
+                                        menuEtudiant();
                                         break;
                                 default:
                                         break;
@@ -53,6 +53,7 @@ public class Main {
                 System.out.println("5 : ajouter adress on college");
                 System.out.println("6 : recherche college");
                 System.out.println("7 : edite  college");
+                System.out.println("8 : tout les matier");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -89,6 +90,10 @@ public class Main {
                                 sevriceAdmin.editeCollege();
                                 menuCollege();
                                 break;
+                        case 8 :
+                                sevriceAdmin.allMatierParCollege();
+                                menuMatier();
+                                break;
                         case 00 :
                                 menu();
                                 break;
@@ -104,7 +109,8 @@ public class Main {
                 System.out.println("3 : voir tout les departement");
                 System.out.println("4 :  edite departement");
                 System.out.println("5 :  ajouter responsable a departement");
-                System.out.println("6 : supprimer une departement");
+                System.out.println("6 :  tous les matiers de departement");
+                System.out.println("7 : supprimer une departement");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -133,6 +139,10 @@ public class Main {
                                 menuDepartement();
                                 break;
                         case 6 :
+                                sevriceAdmin.allMatierParDepartement();
+                                menuDepartement();
+                                break;
+                        case 7 :
                                 sevriceAdmin.removeDepartement();
                                 menuDepartement();
                                 break;
@@ -190,9 +200,7 @@ public class Main {
           System.out.println("2 : chercher une matier");
           System.out.println("3 : voir tout les matier");
           System.out.println("4 : edite Matier");
-          System.out.println("5 : tous les matier de college");
-          System.out.println("6 : tout les matiier de departement");
-          System.out.println("7 : pour supprimer Matier");
+          System.out.println("5 : pour supprimer Matier");
           System.out.println("00 : pour retour au menu principale");
           System.out.println("pour quiter le programme clic sur any button");
           System.out.println("*********************************");
@@ -204,7 +212,7 @@ public class Main {
                           menuMatier();
                           break;
                   case 2 :
-                          sevriceAdmin.getCollege();
+                          sevriceAdmin.rechercheMatier();
                           menuMatier();
                           break;
                   case 3 :
@@ -216,14 +224,6 @@ public class Main {
                           menuMatier();
                           break;
                   case 5 :
-                          sevriceAdmin.allMatierParCollege();
-                          menuMatier();
-                          break;
-                  case 6 :
-                          sevriceAdmin.allMatierParDepartement();
-                          menuMatier();
-                          break;
-                  case 7 :
                           sevriceAdmin.removeMatier();
                           menuMatier();
                           break;
@@ -233,12 +233,12 @@ public class Main {
           }
   }
 
-        public void menuEvaluation(){
-                System.out.println("***************** Menu ****************");
-                System.out.println("1 : ajouter Evaluation");
-                System.out.println("2 : chercher  Evualuation");
-                System.out.println("3 : voir tout les Evaluation");
-                System.out.println("4 : supprimer Evaluation ");
+        public void menuEtudiant(){
+                System.out.println("***************** Menu Etudiant ****************");
+                System.out.println("1 : ajouter Etudiant");
+                System.out.println("2 : chercher  Etudiant");
+                System.out.println("3 : voir tout les etudiants");
+                System.out.println("4 : supprimer Etudiant ");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -247,27 +247,26 @@ public class Main {
                 switch (choix)
                 {
                         case 1 :
-                                sevriceAdmin.addCollege();
-                                menuEvaluation();
+                                sevriceAdmin.addEtudiant();
+                                menuEtudiant();
                                 break;
                         case 2 :
                                 sevriceAdmin.getCollege();
-                                menuEvaluation();
+                                menuEtudiant();
                                 break;
                         case 3 :
                                 sevriceAdmin.getAllCollege();
-                                menuEvaluation();
+                                menuEtudiant();
                                 break;
                         case 4 :
                                 sevriceAdmin.removeCollege();
-                                menuEvaluation();
+                                menuEtudiant();
                                 break;
                         case 00 :
                                 menu();
                                 break;
                 }
         }
-
 
 
 
