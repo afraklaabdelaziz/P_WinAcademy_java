@@ -1,8 +1,7 @@
 package com.company;
 public class Enseignant extends User{
-    private int id;
     private String dateFonction;
-    private Matier matier;
+    private int  idmatier;
 
     public Enseignant(){
         super();
@@ -13,14 +12,6 @@ public class Enseignant extends User{
         this.dateFonction = dateFonction;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getDateFonction() {
         return dateFonction;
     }
@@ -29,26 +20,20 @@ public class Enseignant extends User{
         this.dateFonction = dateFonction;
     }
 
-    public Matier getMatier() {
-        return matier;
+    public int getIdmatier() {
+        return idmatier;
     }
 
-    public void setMatier(Matier matier) {
-        this.matier = matier;
+    public void setIdmatier(int idmatier) {
+        this.idmatier = idmatier;
     }
-
-    public void addMatier(int id,String name,String desciption){
-        this.matier = new Matier(id,name,desciption);
-    }
-
 
     @Override
     public String toString() {
         return "Enseignant{" +
                 "id=" + id +
                 ", dateFonction='" + dateFonction + '\'' +
-                ", matier=" + matier +
-                ", id=" + id +
+                ", idmatier=" + idmatier +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", email='" + email + '\'' +

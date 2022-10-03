@@ -8,7 +8,7 @@ public class Departement {
     private String description;
     private HashMap<Integer,Enseignant> enseignant = new HashMap<Integer,Enseignant>();
     private Enseignant responsable = new Enseignant();
-  public Departement(){};
+    public Departement(){};
     public Departement(int id, String name, String description) {
         this.id = id;
         this.name = name;
@@ -55,9 +55,6 @@ public class Departement {
         this.responsable = responsable;
     }
 
-    public void addResponsable(){
-
-    }
 
     @Override
     public String toString() {

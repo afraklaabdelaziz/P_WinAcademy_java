@@ -7,15 +7,14 @@ public class Main {
         int choix;
         Scanner sc = new Scanner(System.in);
         public void menu(){
+                        System.out.println("             BienVenue au WinAcademy           ");
                         System.out.println("***************** Menu Principal ****************");
-                        System.out.println("1 : college");
-                        System.out.println("2 : departement");
-                        System.out.println("3 : matier");
-                        System.out.println("4 : Enseignant");
-                        System.out.println("5 : Etudiant");
-                        System.out.println("6 : Evaluation");
-                        System.out.println("0 : pour quiter");
-                        System.out.println("************************************************");
+                        System.out.print("1 : college\t\t\t"); System.out.println("2 : departement");
+                        System.out.print("3 : matier\t\t\t"); System.out.println("4 : Enseignant");
+                        System.out.print("5 : Etudiant\t\t"); System.out.println("6 : Evaluation");
+
+                        System.out.println("        pour quiter le programme clic sur any button         ");
+                        System.out.println("**************************************************");
                         choix = sc.nextInt();
                         switch (choix) {
                                 case 1:
@@ -55,7 +54,7 @@ public class Main {
                 System.out.println("6 : recherche college");
                 System.out.println("7 : edite  college");
                 System.out.println("00 : pour retour au menu principale");
-                System.out.println("0 : pour quiter");
+                System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
                 Scanner college = new Scanner(System.in);
                 choix = college.nextInt();
@@ -107,7 +106,7 @@ public class Main {
                 System.out.println("5 :  ajouter responsable a departement");
                 System.out.println("6 : supprimer une departement");
                 System.out.println("00 : pour retour au menu principale");
-                System.out.println("0 : pour quiter");
+                System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
                 choix = sc.nextInt();
 
@@ -152,7 +151,7 @@ public class Main {
                 System.out.println("3 : voir tout Enseignant");
                 System.out.println("4 : supprimer Enseignant");
                 System.out.println("00 : pour retour au menu principale");
-                System.out.println("0 : pour quiter");
+                System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
                 choix = sc.nextInt();
 
@@ -185,9 +184,12 @@ public class Main {
           System.out.println("1 : ajouter une matier");
           System.out.println("2 : chercher une matier");
           System.out.println("3 : voir tout les matier");
-          System.out.println("4 : supprimer une matier");
+          System.out.println("4 : edite Matier");
+          System.out.println("5 : tous les matier de college");
+          System.out.println("6 : tout les matiier de departement");
+          System.out.println("7 : pour supprimer Matier");
           System.out.println("00 : pour retour au menu principale");
-          System.out.println("0 : pour quiter");
+          System.out.println("pour quiter le programme clic sur any button");
           System.out.println("*********************************");
           choix = sc.nextInt();
           switch (choix)
@@ -205,7 +207,19 @@ public class Main {
                           menuMatier();
                           break;
                   case 4 :
-                          sevriceAdmin.removeCollege();
+                          sevriceAdmin.editMatier();
+                          menuMatier();
+                          break;
+                  case 5 :
+                          sevriceAdmin.allMatierParCollege();
+                          menuMatier();
+                          break;
+                  case 6 :
+                          sevriceAdmin.allMatierParDepartement();
+                          menuMatier();
+                          break;
+                  case 7 :
+                          sevriceAdmin.removeMatier();
                           menuMatier();
                           break;
                   case 00 :
@@ -221,7 +235,7 @@ public class Main {
                 System.out.println("3 : voir tout les Evaluation");
                 System.out.println("4 : supprimer Evaluation ");
                 System.out.println("00 : pour retour au menu principale");
-                System.out.println("0 : pour quiter");
+                System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
                 choix = sc.nextInt();
 

@@ -5,6 +5,9 @@ import java.util.HashMap;
 public class App {
     private College college;
      private static HashMap<Integer,College> colleges = new HashMap<>();
+     private HashMap<Integer,Matier> matiers = new HashMap<>();
+     private HashMap<Integer,Etudiant> etudiants = new HashMap<>();
+
 
     public void addCollege(int numero,String nom,String site){
         college = new College(numero, nom, site);
@@ -14,6 +17,7 @@ public class App {
      public void getCollege(int numero){
         System.out.println(colleges.get(numero));
      }
+
      public void getAllCollege(){
          colleges.forEach(
                  (key, value)
@@ -93,18 +97,80 @@ public class App {
         System.out.println(colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant));
     }
 
+    public void AsiegneMatier(int idCollege,int idDepartement,int idEnseignant,int idMatier){
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant).setIdmatier(idMatier);
+    }
+
     public void removeEnseignant(int idCollege,int idDepartement,int idEnseignant){
         colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().remove(idEnseignant);
     }
 
-    public void addMatier(int id,String name,String description,int idCollege,int idDepartement,int idEnseignant){
-        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant).addMatier(id,name,description);
+    public void addMatier(int id,String name,String description){
+        Matier matier = new Matier(id,name,description);
+        matiers.put(id,matier);
     }
 
-    public void getAllMatier(int idCollege,int idDepartement){
-        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().forEach((key,value)->{
-            System.out.println(value.getMatier().getId() + " = " + value.getMatier());
-        });
+    public void getAllMatier(){
+        matiers.forEach(
+                (key, value)
+                        ->
+                        System.out.println(key + " = " + value));
+    }
+
+    public void allMatierParCollege(int idCollege){
+        colleges.get(idCollege).getDepartements().forEach((kd,vd) ->
+                vd.getEnseignant().forEach((ke,ve)->
+                        {
+                            if (ve.getIdmatier() !=0 ) {
+                                matiers.forEach((km,vm) ->
+                                        {
+                                            if (ve.getIdmatier() == vm.getId()) {
+                                                System.out.println(km + " = "+ vm);
+                                            }
+                                        }
+                                        );
+                            }
+                        }
+                ));
+    }
+
+    public void allMatierParDepartement(int idCollege,int idDepartement){
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().forEach((ke,ve)->
+                {
+                    if (ve.getIdmatier() !=0 ) {
+                        matiers.forEach((km,vm) ->
+                                {
+                                    if (ve.getIdmatier() == vm.getId()) {
+                                        System.out.println(km + " = "+ vm);
+                                    }
+                                }
+                        );
+                    }
+                }
+        );
+    }
+
+    public void editMatier(int idMatier,int update,String newValue){
+        switch(update){
+            case 1:
+                matiers.get(idMatier).setName(newValue);
+                break;
+            case 2:
+                matiers.get(idMatier).setDescription(newValue);
+                break;
+        }
+    }
+    public void removeMatier(int idMatier){
+        colleges.forEach((kc,vc) ->
+                vc.getDepartements().forEach((kd,vd)->
+                   vd.getEnseignant().forEach((ke,ve)->
+                           {
+                               if (ve.equals(idMatier)) {
+                                   ve.setIdmatier(0);
+                               }
+                           }
+                           )));
+       matiers.remove(idMatier);
     }
 
     public void rechercheMatier(){
