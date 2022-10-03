@@ -3,6 +3,10 @@ public class Enseignant extends User{
     private int id;
     private String dateFonction;
     private Matier matier;
+
+    public Enseignant(){
+        super();
+    }
     public Enseignant(int id,String dateFonction, String lastName, String firstName, String email, String phone, String password, String status) {
         super(id, lastName, firstName, email, phone, password, status);
         this.id = id;

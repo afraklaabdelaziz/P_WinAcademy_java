@@ -99,11 +99,13 @@ public class Main {
  // Menu Departement
 
         public void menuDepartement(){
-                System.out.println("***************** Menu DEpartement ****************");
+                System.out.println("***************** Menu Departement ****************");
                 System.out.println("1 : ajouter Departement");
                 System.out.println("2 : chercher une  Departement");
                 System.out.println("3 : voir tout les departement");
-                System.out.println("4 : supprimer une departement");
+                System.out.println("4 :  edite departement");
+                System.out.println("5 :  ajouter responsable a departement");
+                System.out.println("6 : supprimer une departement");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("0 : pour quiter");
                 System.out.println("*********************************");
@@ -124,6 +126,14 @@ public class Main {
                                 menuDepartement();
                                 break;
                         case 4 :
+                                sevriceAdmin.editDepartement();
+                                menuDepartement();
+                                break;
+                        case 5 :
+                                sevriceAdmin.addResponsable();
+                                menuDepartement();
+                                break;
+                        case 6 :
                                 sevriceAdmin.removeDepartement();
                                 menuDepartement();
                                 break;
@@ -191,7 +201,7 @@ public class Main {
                           menuMatier();
                           break;
                   case 3 :
-                          sevriceAdmin.getAllCollege();
+                          sevriceAdmin.getAllMatier();
                           menuMatier();
                           break;
                   case 4 :

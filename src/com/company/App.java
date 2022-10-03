@@ -30,14 +30,12 @@ public class App {
          }
 
          public void editeCollege(int idCollege,int update,String newValue){
-             colleges.forEach((key,value) -> {
                 if (update == 1){
                     colleges.get(idCollege).setName(newValue);
                 }
                 else if(update == 2){
                     colleges.get(idCollege).setSite(newValue);
                 }
-             });
          }
 
 
@@ -47,19 +45,34 @@ public class App {
 
      public void addDepartement(int id, String name, String description,int idCollege){
         Departement departement = new Departement(id,name,description);
-            colleges.get(idCollege).setDepartements(id,departement);
+            colleges.get(idCollege).getDepartements().put(id,departement);
      }
 
      public void getAllDepartement(int idCollege){
-        colleges.get(idCollege).departements.forEach((key,value) -> System.out.println(key + " = " + value));
+        colleges.get(idCollege).getDepartements().forEach((key,value) -> System.out.println(key + " = " + value));
      }
 
      public void getDepartement(int idCollege,int idDepartement){
-         System.out.println(colleges.get(idCollege).departements.get(idDepartement));
+         System.out.println(colleges.get(idCollege).getDepartements().get(idDepartement));
+     }
+
+     public void editDepartement(int idCollege,int idDepartement,int update,String newValue){
+        switch (update){
+            case 1 : colleges.get(idCollege).getDepartements().get(idDepartement).setName(newValue);
+                break;
+            case 2 : colleges.get(idCollege).getDepartements().get(idDepartement).setDescription(newValue);
+                break;
+        }
+     }
+
+     public void addResponsable(int idCollege,int idDepartement,int idEnseignant){
+        Enseignant responsable = colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant);
+         colleges.get(idCollege).getDepartements().get(idDepartement).setResponsable(responsable);
      }
 
      public void removeDepartement(int idCollege,int idDepartement){
-        colleges.get(idCollege).departements.remove(idDepartement);
+
+        colleges.get(idCollege).getDepartements().remove(idDepartement);
      }
 
     public void addAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege) {
@@ -68,27 +81,34 @@ public class App {
 
   public void addEnsiegnant(int id,String date, String lastName, String firstName, String email, String phone, String password, String status,int idCollege,int idDepartement){
         Enseignant enseignant = new Enseignant(id,date,lastName,firstName,email,phone,password,status);
-        colleges.get(idCollege).departements.get(idDepartement).enseignant.put(id,enseignant);
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().put(id,enseignant);
   }
 
+
   public void getAllEnseignant(int idCollege,int idDepartement){
-        colleges.get(idCollege).departements.get(idDepartement).enseignant.forEach((key,value) -> System.out.println(key + " = " + value));
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().forEach((key, value) -> System.out.println(key + " = " + value));
   }
 
     public void getEnseignant(int idCollege,int idDepartement,int idEnseignant){
-        System.out.println(colleges.get(idCollege).departements.get(idDepartement).enseignant.get(idEnseignant));
+        System.out.println(colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant));
     }
 
     public void removeEnseignant(int idCollege,int idDepartement,int idEnseignant){
-        colleges.get(idCollege).departements.get(idDepartement).enseignant.remove(idEnseignant);
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().remove(idEnseignant);
     }
 
     public void addMatier(int id,String name,String description,int idCollege,int idDepartement,int idEnseignant){
-        colleges.get(idCollege).departements.get(idDepartement).enseignant.get(idEnseignant).addMatier(id,name,description);
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().get(idEnseignant).addMatier(id,name,description);
     }
 
     public void getAllMatier(int idCollege,int idDepartement){
-        colleges.get(idCollege).departements.get(idDepartement);
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().forEach((key,value)->{
+            System.out.println(value.getMatier().getId() + " = " + value.getMatier());
+        });
+    }
+
+    public void rechercheMatier(){
+
     }
 
   public void updateAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege){

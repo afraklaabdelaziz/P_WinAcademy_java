@@ -7,6 +7,7 @@ public class Departement {
     private String name;
     private String description;
     private HashMap<Integer,Enseignant> enseignant = new HashMap<Integer,Enseignant>();
+    private Enseignant responsable = new Enseignant();
   public Departement(){};
     public Departement(int id, String name, String description) {
         this.id = id;
@@ -46,14 +47,16 @@ public class Departement {
         this.enseignant = enseignant;
     }
 
-    public void addEnseignant(int id, String date, String lastName, String firstName, String email, String phone, String password, String status){
-        this.enseignant.put(id,new Enseignant(id,date,lastName,firstName,email,phone,password,status));
+    public Enseignant getResponsable() {
+        return responsable;
     }
-    public void removeEnseignant(int id){
-        this.enseignant.remove(id);
+
+    public void setResponsable(Enseignant responsable) {
+        this.responsable = responsable;
     }
-    public Enseignant rchercheEnseignant(int id){
-        return this.enseignant.get(id);
+
+    public void addResponsable(){
+
     }
 
     @Override
@@ -63,6 +66,7 @@ public class Departement {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", enseignant=" + enseignant +
+                ", responsable=" + responsable +
                 '}';
     }
 }
