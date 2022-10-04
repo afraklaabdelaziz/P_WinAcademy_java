@@ -319,6 +319,18 @@ public class SevriceAdmin {
         app.aseignerMatierEtudiant(idEtudiant,idMatier);
     }
 
+    public void rechercheEtudiant(){
+        System.out.println("Entere Firstname,Lastname,email ou phone d'etudiant a rechercher");
+        String search = sc.next();
+        app.rechercheEtudiant(search);
+    }
+
+    public void removeEtudiant(){
+        System.out.println("Entere id etudiant");
+        int idEtudiant = sc.nextInt();
+        app.removeEtudiant(idEtudiant);
+    }
+
     public void addEvaluation(){
         getAllCollege();
         System.out.println("Entere id de college");
@@ -393,7 +405,33 @@ public class SevriceAdmin {
         System.out.println("Enter id de departement");
         int idDepartement = sc.nextInt();
         app.allMatierParDepartement(idCollege,idDepartement);
-        System.out.print("Moyen generale de cette departemnt est :" + app.moyenOfNoteDepartement(idCollege,idDepartement));
+        System.out.println("Moyen generale de cette departemnt est :" + app.moyenOfNoteDepartement(idCollege,idDepartement));
     }
+
+    public void moyenOfNoteParMatier(){
+        System.out.println("Enterer le numero de college");
+        int idCollege = sc.nextInt();
+        app.getAllDepartement(idCollege);
+        System.out.println("Enter id de departement");
+        int idDepartement = sc.nextInt();
+        app.allMatierParDepartement(idCollege,idDepartement);
+        System.out.println("Enter id de matier");
+        int idMatier = sc.nextInt();
+        app.moyenOfNoteParMatier(idMatier);
+    }
+
+   public void moyenParEtudiant(){
+       getAlletudiant();
+       System.out.println("Enterer le numero d'Etudiant");
+       int idEtudiant = sc.nextInt();
+       app.moyenNoteParEtudiant(idEtudiant);
+   }
+
+   public void matierPasNote(){
+        getAlletudiant();
+       System.out.println("Enterer le numero d'Etudiant");
+       int idEtudiant = sc.nextInt();
+       app.MatierPasNote(idEtudiant);
+   }
 
 }

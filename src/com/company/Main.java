@@ -54,7 +54,7 @@ public class Main {
                 System.out.println("6 : recherche college");
                 System.out.println("7 : edite  college");
                 System.out.println("8 : tout les matier");
-                System.out.println("9 : moyen des notes par departement");
+                System.out.println("9 : moyen des notes");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -96,7 +96,19 @@ public class Main {
                                 menuCollege();
                                 break;
                         case 9 :
-                                sevriceAdmin.moyenOfNoteDepartement();
+                                System.out.println("1 : par departement\n2 : par matier\n3 : par Etudiant");
+                                int numero = sc.nextInt();
+                                switch (numero){
+                                        case 1 :
+                                                sevriceAdmin.moyenOfNoteDepartement();
+                                                break;
+                                        case 2 :
+                                                sevriceAdmin.moyenOfNoteParMatier();
+                                                break;
+                                        case 3 :
+                                                sevriceAdmin.moyenParEtudiant();
+                                                break;
+                                }
                                 menuCollege();
                                 break;
                         case 00 :
@@ -245,7 +257,8 @@ public class Main {
                 System.out.println("3 : voir tout les etudiants");
                 System.out.println("4 : edite etudiant");
                 System.out.println("5 : asigner matier a etudiant");
-                System.out.println("6 : supprimer Etudiant ");
+                System.out.println("6 : Matier n'es pas noter");
+                System.out.println("7 : supprimer Etudiant ");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -258,7 +271,7 @@ public class Main {
                                 menuEtudiant();
                                 break;
                         case 2 :
-                                sevriceAdmin.getCollege();
+                                sevriceAdmin.rechercheEtudiant();
                                 menuEtudiant();
                                 break;
                         case 3 :
@@ -274,7 +287,11 @@ public class Main {
                                 menuEtudiant();
                                 break;
                         case 6 :
-                                sevriceAdmin.removeCollege();
+                                sevriceAdmin.matierPasNote();
+                                menuEtudiant();
+                                break;
+                        case 7 :
+                                sevriceAdmin.removeEtudiant();
                                 menuEtudiant();
                                 break;
                         case 00 :

@@ -211,6 +211,14 @@ public class App {
         etudiants.forEach((key,value)-> System.out.println(key + " = " + value));
     }
 
+    public void rechercheEtudiant(String search){
+        etudiants.forEach((key,value) -> {
+            if(value.email== search || value.firstName == search || value.lastName == search || value.phone == search){
+                System.out.println(key + " = " + value);
+            }
+        });
+    }
+
     public void removeEtudiant(int idEtudiant){
         etudiants.remove(idEtudiant);
     }
@@ -271,8 +279,43 @@ public class App {
         moyenNote = note[0]/note[1];
         return moyenNote;
     }
-    
 
-     }
+    public double moyenOfNoteParMatier(int idMatier){
+        final double note[] = {0,0};
+        double moyenNote = 0;
+        etudiants.forEach((key,value) -> {
+            value.getEvaluations().forEach((keyEv,valEv)->{
+                if (valEv.getId_matier() == idMatier){
+                    note[0]+= valEv.getNote();
+                    note[1]++;
+                }
+            });
+        });
+        moyenNote = note[0]/note[1];
+        return moyenNote;
+    }
+
+    public double moyenNoteParEtudiant(int idEtudiant){
+        final double note[] = {0,0};
+        double moyenNote = 0;
+        etudiants.get(idEtudiant).getEvaluations().forEach((key,value)->{
+            note[0] += value.getNote();
+            note[1]++;
+        });
+        moyenNote = note[0]/note[1];
+        return moyenNote;
+    }
+
+    public void MatierPasNote(int idEtudiant){
+        etudiants.get(idEtudiant).getEvaluations().forEach((key,value)->{
+            etudiants.get(idEtudiant).getMatiers().forEach((keym,valuem)->{
+                if (value.getId_matier() != keym){
+                    System.out.println(keym + " = " + valuem.getName());
+                }
+            });
+        });
+    }
+
+}
 
 
