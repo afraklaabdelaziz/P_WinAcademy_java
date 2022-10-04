@@ -307,6 +307,19 @@ public class SevriceAdmin {
         app.editEtudint(idEtudiant,nuumero,newValue);
     }
 
+    public void aseignerMatierEtudiant(){
+        getAllCollege();
+        System.out.println("Entere id de college");
+        int idCollege = sc.nextInt();
+        app.allMatierParCollege(idCollege);
+        System.out.println("Choisir id matier");
+        int idMatier = sc.nextInt();
+        getAlletudiant();
+        System.out.println("Chousir id etudiant que tu va asiegner cette matier");
+        int idEtudiant = sc.nextInt();
+        app.aseignerMatierEtudiant(idEtudiant,idMatier);
+    }
+
     public void addEvaluation(){
         getAllCollege();
         System.out.println("Entere id de college");

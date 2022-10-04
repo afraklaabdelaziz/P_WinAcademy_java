@@ -8,6 +8,7 @@ public class App {
      private static HashMap<Integer,College> colleges = new HashMap<>();
      private HashMap<Integer,Matier> matiers = new HashMap<>();
      private HashMap<Integer,Etudiant> etudiants = new HashMap<>();
+     private HashSet<Enseigner> enseigners = new HashSet<>();
 
 
     public void addCollege(int numero,String nom,String site){
@@ -166,7 +167,7 @@ public class App {
                 vc.getDepartements().forEach((kd,vd)->
                    vd.getEnseignant().forEach((ke,ve)->
                            {
-                               if (ve.equals(idMatier)) {
+                               if (ve.getIdmatier() == idMatier) {
                                    ve.setIdmatier(0);
                                }
                            }
@@ -209,13 +210,22 @@ public class App {
         etudiants.forEach((key,value)-> System.out.println(key + " = " + value));
     }
 
+    public void removeEtudiant(int idEtudiant){
+        etudiants.remove(idEtudiant);
+    }
+
+    public void aseignerMatierEtudiant(int idEtudiant,int idMatier){
+        Matier matier = matiers.get(idMatier);
+        etudiants.get(idEtudiant).setMatiers(matier,idMatier);
+    }
+
 
 
 
 
     public void addEvaluation(int idEvaluation,int idEtudiant,int idMatier,String date,double note){
         Evaluation evaluation = new Evaluation(idEvaluation,idMatier,date,note);
-        etudiants.get(idEtudiant).getEvaluations().put(idMatier,evaluation);
+        etudiants.get(idEtudiant).getEvaluations().put(idEvaluation,evaluation);
     }
 
     public void editEvaluation(int idEtudiant,int idEvaluation,double newNote){
@@ -226,7 +236,11 @@ public class App {
         etudiants.get(idEtudiant).getEvaluations().forEach((key,value) ->
                 {
                     if (value.getId_matier() == idMAtier) {
-                        System.out.println(key + " = " + value);
+                        matiers.forEach((km,vm) -> {
+                            if (km.equals(idMAtier)){
+                                System.out.println(key + " = " + vm.getName() + "  " + value.getDate() + "    " + value.getNote());
+                            }
+                        });
                     }
                 }
 
@@ -237,9 +251,16 @@ public class App {
         etudiants.get(idEtudiant).getEvaluations().remove(idEvualution);
     }
 
-  public void updateAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege){
+    public double moyenOfNoteDEpartement(){
+        double moyenNote = 0;
+        etudiants.forEach((ke,ve)->{
+            ve.getEvaluations().forEach((kEv,vEv) ->{
+                
+            });
+        });
+        return moyenNote;
+    }
 
-  }
      }
 
 

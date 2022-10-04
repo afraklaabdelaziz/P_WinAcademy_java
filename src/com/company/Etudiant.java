@@ -6,6 +6,7 @@ public class Etudiant extends User {
     private int id;
     private String anneeEntree;
     private HashMap<Integer,Evaluation> evaluations = new HashMap<>();
+    private HashMap<Integer,Matier> matiers = new HashMap<>();
 
     public int getId() {
         return id;
@@ -27,6 +28,14 @@ public class Etudiant extends User {
         return evaluations;
     }
 
+    public HashMap<Integer, Matier> getMatiers() {
+        return matiers;
+    }
+
+    public void setMatiers(Matier matier,int idMatier) {
+        this.matiers.put(idMatier,matier);
+    }
+
     public void setEvaluations(HashMap<Integer, Evaluation> evaluations) {
         this.evaluations = evaluations;
     }
@@ -42,6 +51,7 @@ public class Etudiant extends User {
         return "Etudiant{" +
                 "id=" + id +
                 ", anneeEntree='" + anneeEntree + '\'' +
+                ", id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", email='" + email + '\'' +
@@ -49,6 +59,7 @@ public class Etudiant extends User {
                 ", password='" + password + '\'' +
                 ", status='" + status + '\'' +
                 ", evaluations=" + evaluations +
+                ", matiers=" + matiers +
                 '}';
     }
 }

@@ -92,7 +92,7 @@ public class Main {
                                 break;
                         case 8 :
                                 sevriceAdmin.allMatierParCollege();
-                                menuMatier();
+                                menuCollege();
                                 break;
                         case 00 :
                                 menu();
@@ -239,7 +239,8 @@ public class Main {
                 System.out.println("2 : chercher  Etudiant");
                 System.out.println("3 : voir tout les etudiants");
                 System.out.println("4 : edite etudiant");
-                System.out.println("4 : supprimer Etudiant ");
+                System.out.println("5 : asigner matier a etudiant");
+                System.out.println("6 : supprimer Etudiant ");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -264,6 +265,10 @@ public class Main {
                                 menuEtudiant();
                                 break;
                         case 5 :
+                                sevriceAdmin.aseignerMatierEtudiant();
+                                menuEtudiant();
+                                break;
+                        case 6 :
                                 sevriceAdmin.removeCollege();
                                 menuEtudiant();
                                 break;
