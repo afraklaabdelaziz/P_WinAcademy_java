@@ -139,10 +139,9 @@ public class SevriceAdmin {
         getAllCollege();
         System.out.println("Entrer numuro de college que tu va inserer cet Enseignant");
         int idCollege = sc.nextInt();
-        app.getCollege(idCollege);
+        app.getAllDepartement(idCollege);
         System.out.println("Entrer numuro de departement que tu va inserer cet Enseignant");
         int idDepartement = sc.nextInt();
-        app.getDepartement(idDepartement,idCollege);
         System.out.println("Entrer id Enseignant");
          int id = sc.nextInt();
         System.out.println("Entrer date de fonction");
@@ -384,6 +383,17 @@ public class SevriceAdmin {
         System.out.println("Choidir evaluation que tu va supprimer");
         int idEvaluation = sc.nextInt();
         app.removeEvualution(idEtudiant,idEvaluation);
+    }
+
+
+    public void moyenOfNoteDepartement(){
+        System.out.println("Enterer le numero de college");
+        int idCollege = sc.nextInt();
+        app.getAllDepartement(idCollege);
+        System.out.println("Enter id de departement");
+        int idDepartement = sc.nextInt();
+        app.allMatierParDepartement(idCollege,idDepartement);
+        System.out.print("Moyen generale de cette departemnt est :" + app.moyenOfNoteDepartement(idCollege,idDepartement));
     }
 
 }

@@ -54,6 +54,7 @@ public class Main {
                 System.out.println("6 : recherche college");
                 System.out.println("7 : edite  college");
                 System.out.println("8 : tout les matier");
+                System.out.println("9 : moyen des notes par departement");
                 System.out.println("00 : pour retour au menu principale");
                 System.out.println("pour quiter le programme clic sur any button");
                 System.out.println("*********************************");
@@ -92,6 +93,10 @@ public class Main {
                                 break;
                         case 8 :
                                 sevriceAdmin.allMatierParCollege();
+                                menuCollege();
+                                break;
+                        case 9 :
+                                sevriceAdmin.moyenOfNoteDepartement();
                                 menuCollege();
                                 break;
                         case 00 :

@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -251,15 +252,26 @@ public class App {
         etudiants.get(idEtudiant).getEvaluations().remove(idEvualution);
     }
 
-    public double moyenOfNoteDEpartement(){
+    public double moyenOfNoteDepartement(int idCollege,int idDepartement) {
+        final double[] note = {0, 0};
         double moyenNote = 0;
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().forEach((key,value) ->{
         etudiants.forEach((ke,ve)->{
-            ve.getEvaluations().forEach((kEv,vEv) ->{
-                
+            System.out.println("kjgjgc");
+            ve.getEvaluations().forEach((keyEv,valueEv) ->{
+
+                if (value.getIdmatier() == valueEv.getId_matier()){
+                    note[0] += valueEv.getNote();
+                    note[1]++;
+                }
+
             });
         });
+        });
+        moyenNote = note[0]/note[1];
         return moyenNote;
     }
+    
 
      }
 
