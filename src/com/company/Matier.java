@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Matier {
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     private int id;
     private String name;
     private String description;
@@ -29,8 +32,8 @@ public class Matier {
         this.description = description;
     }
 
-    public Matier(int id, String name, String description) {
-        this.id = id;
+    public Matier(String name, String description) {
+        this.id = _ID.incrementAndGet();
         this.name = name;
         this.description = description;
     }

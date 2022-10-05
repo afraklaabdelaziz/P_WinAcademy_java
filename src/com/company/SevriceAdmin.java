@@ -9,13 +9,11 @@ public class SevriceAdmin {
 //College
 
     public void addCollege(){
-        System.out.println("entrer le numero de college ");
-        int numeroCollege = sc.nextInt();
         System.out.println("entrer le nom de college ");
         String nomCollege = sc.next();
         System.out.println("entrer site de college ");
         String siteCollege = sc.next();
-        app.addCollege(numeroCollege,nomCollege,siteCollege);
+        app.addCollege(nomCollege,siteCollege);
     }
     public void getCollege(){
         System.out.println("Entrer le numero de college que tu va  chercher");
@@ -56,13 +54,11 @@ public class SevriceAdmin {
         getAllCollege();
         System.out.println("Entrer numuro de college que tu va inserer cette departement");
         int idCollege = sc.nextInt();
-        System.out.println("entrer le numero de Departement ");
-        int numeroDepartement = sc.nextInt();
         System.out.println("entrer le nom de Departement ");
         String nomDepartement = sc.next();
         System.out.println("entrer description de Departement ");
         String descDepartement = sc.next();
-        app.addDepartement(numeroDepartement,nomDepartement,descDepartement,idCollege);
+        app.addDepartement(nomDepartement,descDepartement,idCollege);
     }
     public void getAllDepartement(){
         getAllCollege();
@@ -120,8 +116,6 @@ public class SevriceAdmin {
         getAllCollege();
         System.out.println("Entrer numuro de college que tu va inserer cet Adress");
         int idCollege = sc.nextInt();
-        System.out.println("entrer id Adress ");
-        int idAdress= sc.nextInt();
         System.out.println("entrer ville ");
         String ville = sc.next();
         System.out.println("entrer pays ");
@@ -130,7 +124,7 @@ public class SevriceAdmin {
         String codePostal = sc.next();
         System.out.println("entrer adress");
         String adress = sc.next();
-        app.addAdress(idAdress,ville,pays,codePostal,adress,idCollege);
+        app.addAdress(ville,pays,codePostal,adress,idCollege);
     }
 
 //Enseinant
@@ -142,8 +136,6 @@ public class SevriceAdmin {
         app.getAllDepartement(idCollege);
         System.out.println("Entrer numuro de departement que tu va inserer cet Enseignant");
         int idDepartement = sc.nextInt();
-        System.out.println("Entrer id Enseignant");
-         int id = sc.nextInt();
         System.out.println("Entrer date de fonction");
         String date = sc.next();
         System.out.println("Entrer lastName");
@@ -158,7 +150,7 @@ public class SevriceAdmin {
         String password = sc.next();
         System.out.println("Entrer status");
         String status = sc.next();
-        app.addEnsiegnant(id,date,lastname,firstname,email,phone,password,status,idCollege,idDepartement);
+        app.addEnsiegnant(date,lastname,firstname,email,phone,password,status,idCollege,idDepartement);
     }
 
     public void getAllEnseignant(){
@@ -215,13 +207,11 @@ public class SevriceAdmin {
     //Matier
 
     public void addMatier(){
-        System.out.println("Entrer id de matier");
-        int idMatier = sc.nextInt();
         System.out.println("Entrer name de matier");
         String name = sc.next();
         System.out.println("Entrer description de matier");
         String description = sc.next();
-        app.addMatier(idMatier,name,description);
+        app.addMatier(name,description);
     }
 
     public void getAllMatier(){
@@ -272,8 +262,6 @@ public class SevriceAdmin {
     }
 
     public void addEtudiant(){
-        System.out.println("Entrer id Etudiant");
-        int id = sc.nextInt();
         System.out.println("Entrer date d'entrer");
         String dateEnter = sc.next();
         System.out.println("Entrer lastName");
@@ -288,7 +276,7 @@ public class SevriceAdmin {
         String password = sc.next();
         System.out.println("Entrer status");
         String status = sc.next();
-        app.addEtudiant(id,dateEnter,lastname,firstname,email,phone,password,status);
+        app.addEtudiant(dateEnter,lastname,firstname,email,phone,password,status);
     }
 
     public void getAlletudiant(){
@@ -338,8 +326,6 @@ public class SevriceAdmin {
         getAlletudiant();
         System.out.println("entrer id Etudiant");
         int idEtudiant = sc.nextInt();
-        System.out.println("entrer id Evaluation");
-        int idEvaluation = sc.nextInt();
         System.out.println("Enter date evaluation");
         String date = sc.next();
         System.out.println("Enter note evaluation");
@@ -347,7 +333,7 @@ public class SevriceAdmin {
         System.out.println("choisir id de matier de evaluation");
         app.allMatierParCollege(idCollege);
         int idMatier = sc.nextInt();
-        app.addEvaluation(idEvaluation,idEtudiant,idMatier,date,note);
+        app.addEvaluation(idEtudiant,idMatier,date,note);
     }
 
     public void allEvaluationParMatire(){

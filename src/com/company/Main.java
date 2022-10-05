@@ -338,7 +338,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+                Data data = new Data();
+        data.insertData();
        Main main = new Main();
        main.menu();
 

@@ -7,14 +7,45 @@ import java.util.HashSet;
 public class App {
     private College college;
      private static HashMap<Integer,College> colleges = new HashMap<>();
-     private HashMap<Integer,Matier> matiers = new HashMap<>();
-     private HashMap<Integer,Etudiant> etudiants = new HashMap<>();
-     private HashSet<Enseigner> enseigners = new HashSet<>();
+     private static HashMap<Integer,Matier> matiers = new HashMap<>();
+     private static HashMap<Integer,Etudiant> etudiants = new HashMap<>();
 
 
-    public void addCollege(int numero,String nom,String site){
-        college = new College(numero, nom, site);
-         colleges.put(numero,college);
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
+    }
+
+    public HashMap<Integer, College> getColleges() {
+        return colleges;
+    }
+
+    public void setColleges(HashMap<Integer, College> colleges) {
+        App.colleges = colleges;
+    }
+
+    public HashMap<Integer, Matier> getMatiers() {
+        return matiers;
+    }
+
+    public void setMatiers(HashMap<Integer, Matier> matiers) {
+        this.matiers = matiers;
+    }
+
+    public HashMap<Integer, Etudiant> getEtudiants() {
+        return etudiants;
+    }
+
+    public void setEtudiants(HashMap<Integer, Etudiant> etudiants) {
+        this.etudiants = etudiants;
+    }
+
+    public void addCollege(String nom, String site){
+        college = new College(nom, site);
+         colleges.put(college.getNumero(),college);
          System.out.println(colleges.toString());
      }
      public void getCollege(int numero){
@@ -50,9 +81,9 @@ public class App {
         colleges.remove(numero);
     }
 
-     public void addDepartement(int id, String name, String description,int idCollege){
-        Departement departement = new Departement(id,name,description);
-            colleges.get(idCollege).getDepartements().put(id,departement);
+     public void addDepartement(String name, String description,int idCollege){
+        Departement departement = new Departement(name,description);
+            colleges.get(idCollege).getDepartements().put(departement.getId(),departement);
      }
 
      public void getAllDepartement(int idCollege){
@@ -82,13 +113,13 @@ public class App {
         colleges.get(idCollege).getDepartements().remove(idDepartement);
      }
 
-    public void addAdress(int id,String ville,String pays,String adress,String codePostal,int idCollege) {
-        colleges.get(idCollege).addAdress(id, ville, pays, codePostal, adress);
+    public void addAdress(String ville,String pays,String adress,String codePostal,int idCollege) {
+        colleges.get(idCollege).addAdress(ville, pays, codePostal, adress);
   }
 
-  public void addEnsiegnant(int id,String date, String lastName, String firstName, String email, String phone, String password, String status,int idCollege,int idDepartement){
-        Enseignant enseignant = new Enseignant(id,date,lastName,firstName,email,phone,password,status);
-        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().put(id,enseignant);
+  public void addEnsiegnant(String date, String lastName, String firstName, String email, String phone, String password, String status,int idCollege,int idDepartement){
+        Enseignant enseignant = new Enseignant(date,lastName,firstName,email,phone,password,status);
+        colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().put(enseignant.getId(),enseignant);
   }
 
 
@@ -108,9 +139,9 @@ public class App {
         colleges.get(idCollege).getDepartements().get(idDepartement).getEnseignant().remove(idEnseignant);
     }
 
-    public void addMatier(int id,String name,String description){
-        Matier matier = new Matier(id,name,description);
-        matiers.put(id,matier);
+    public void addMatier(String name,String description){
+        Matier matier = new Matier(name,description);
+        matiers.put(matier.getId(),matier);
     }
 
     public void getAllMatier(){
@@ -184,9 +215,9 @@ public class App {
         });
     }
 
-    public void addEtudiant(int id,String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status){
-        Etudiant etudiant = new Etudiant(id,anneeEntree,lastName,firstName,email,phone,password,status);
-        etudiants.put(id,etudiant);
+    public void addEtudiant(String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status){
+        Etudiant etudiant = new Etudiant(anneeEntree,lastName,firstName,email,phone,password,status);
+        etudiants.put(etudiant.getId(),etudiant);
     }
 
     public void editEtudint(int idEtudiant,int update,String newValue){
@@ -208,7 +239,7 @@ public class App {
     }
 
     public void getAllEtudiant(){
-        etudiants.forEach((key,value)-> System.out.println(key + " = " + value));
+        etudiants.forEach((key,value) -> System.out.println(key + " = " + value));
     }
 
     public void rechercheEtudiant(String search){
@@ -232,9 +263,9 @@ public class App {
 
 
 
-    public void addEvaluation(int idEvaluation,int idEtudiant,int idMatier,String date,double note){
-        Evaluation evaluation = new Evaluation(idEvaluation,idMatier,date,note);
-        etudiants.get(idEtudiant).getEvaluations().put(idEvaluation,evaluation);
+    public void addEvaluation(int idEtudiant,int idMatier,String date,double note){
+        Evaluation evaluation = new Evaluation(idMatier,date,note);
+        etudiants.get(idEtudiant).getEvaluations().put(evaluation.getId(),evaluation);
     }
 
     public void editEvaluation(int idEtudiant,int idEvaluation,double newNote){

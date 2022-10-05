@@ -1,21 +1,23 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class College{
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     private int numero;
     private String name;
     private String site;
     private Adress adress ;
-    private HashMap<Integer,Departement> departements = new HashMap<Integer,Departement>();
+    private HashMap<Integer,Departement> departements = new HashMap<>();
 
-    public void addAdress(int id,String ville,String pays,String codePostal,String adress){
-        this.adress = new Adress(id,ville,pays,codePostal,adress);
+    public void addAdress(String ville,String pays,String codePostal,String adress){
+        this.adress = new Adress(ville,pays,codePostal,adress);
     }
 
     public College(){}
-    public College(int numero, String name, String site) {
-        this.numero = numero;
+    public College(String name, String site) {
+        this.numero = _ID.incrementAndGet();
         this.name = name;
         this.site = site;
     }

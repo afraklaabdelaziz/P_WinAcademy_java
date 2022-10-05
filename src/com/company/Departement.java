@@ -1,16 +1,18 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Departement {
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     private int id;
     private String name;
     private String description;
     private HashMap<Integer,Enseignant> enseignant = new HashMap<Integer,Enseignant>();
     private Enseignant responsable = new Enseignant();
     public Departement(){};
-    public Departement(int id, String name, String description) {
-        this.id = id;
+    public Departement( String name, String description) {
+        this.id = _ID.incrementAndGet();
         this.name = name;
         this.description = description;
     }

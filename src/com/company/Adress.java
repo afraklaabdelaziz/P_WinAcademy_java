@@ -1,14 +1,17 @@
 package com.company;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Adress {
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     private int id;
     private String ville;
     private String pays;
     private String codePostal;
     private String adress;
 
-    public Adress(int id, String ville, String pays, String codePostal, String adress) {
-        this.id = id;
+    public Adress(String ville, String pays, String codePostal, String adress) {
+        this.id = _ID.incrementAndGet();
         this.ville = ville;
         this.pays = pays;
         this.codePostal = codePostal;

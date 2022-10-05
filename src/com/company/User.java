@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class User {
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     protected int id;
     protected String lastName;
     protected String firstName;
@@ -9,8 +12,8 @@ public class User {
     protected String password;
     protected String status;
 
-    public User(int id, String lastName, String firstName, String email, String phone, String password, String status) {
-        this.id = id;
+    public User(String lastName, String firstName, String email, String phone, String password, String status) {
+        this.id = _ID.incrementAndGet();
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;

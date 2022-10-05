@@ -3,7 +3,6 @@ package com.company;
 import java.util.HashMap;
 
 public class Etudiant extends User {
-    private int id;
     private String anneeEntree;
     private HashMap<Integer,Evaluation> evaluations = new HashMap<>();
     private HashMap<Integer,Matier> matiers = new HashMap<>();
@@ -40,9 +39,8 @@ public class Etudiant extends User {
         this.evaluations = evaluations;
     }
 
-    public Etudiant(int id,String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status) {
-        super(id, lastName, firstName, email, phone, password, status);
-        this.id = id;
+    public Etudiant(String anneeEntree, String lastName, String firstName, String email, String phone, String password, String status) {
+        super(lastName, firstName, email, phone, password, status);
         this.anneeEntree = anneeEntree;
     }
 
@@ -51,7 +49,6 @@ public class Etudiant extends User {
         return "Etudiant{" +
                 "id=" + id +
                 ", anneeEntree='" + anneeEntree + '\'' +
-                ", id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", email='" + email + '\'' +

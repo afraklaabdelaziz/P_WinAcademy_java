@@ -1,14 +1,17 @@
 package com.company;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Evaluation {
+    private static final AtomicInteger _ID = new AtomicInteger(0);
     private int id;
     private int id_matier;
     private String date;
     private double note;
 
     public Evaluation(){}
-    public Evaluation(int id,int id_matier, String date, double note) {
-        this.id = id;
+    public Evaluation(int id_matier, String date, double note) {
+        this.id = _ID.incrementAndGet();
         this.id_matier = id_matier;
         this.date = date;
         this.note = note;
